@@ -1,0 +1,73 @@
+---
+title: "mtcars Multivariate Regression Model Builder"
+author: "Danny Beery"
+date: "2022-11-07"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What is mtcars Multivariate Regression Model Builder?
+
+A free to use tool for assessing how selecting predictors influences beta-coefficients and confidence intervals around predictors in a sample data set (mtcars).
+
+## What is mtcars?
+
+- mtcars is a publically available dataset that comes with base R
+
+- mtcars contains on 11 variable for 32 automobiles
+
+- mtcars variables include:
+  <font size="3">
+  - mpg (miles per gallon) 
+  - cyl (# of cylinders)
+  - disp (displacement)
+  - hp (gross horsepower)
+  - drat (real axle ratio)
+  - wt (weight)
+  - qsec (1/4 mile time)
+  - vs (Engine: v-shaped or straight)
+  - am (Transmission: automatic or manual)
+  - gear (# of forward gears)
+  - carb (# of carburetors)
+  
+  </font>
+  
+## Why?
+
+- Many students do not know how important model selection can be when building multivariate Regression Models. 
+
+- This tool can illustrate how not controlling for predictors can lead to statistically significant beta-coefficients.  
+
+## Outputs
+
+- This tool provides the beta coefficients of each predictor in order from top to bottom. 
+
+- 95% confidence intervals for each predictor included.
+
+## How to use 
+<font size="2">
+
+1. Check boxes to add predictors (The response variable has been automatically set as 'mpg').
+
+2. Press Submit!
+
+#### Example: Check boxes "Include/Exclude Wt" and "Include/Exclude am" only and press Submit.
+
+</font>
+
+```{r, echo = TRUE}
+y <- lm(mpg ~ wt + am, data = mtcars)
+coef(y)
+confint(y)
+```
+
+
+## Insights
+
+-Experiment with including and excluding predictors. 
+
+-Notice how the beta coefficients and confidence intervals change!
+
